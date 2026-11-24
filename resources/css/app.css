@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Mulish', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+
+    --color-navy: #1b3a5c;      /* header */
+    --color-navy-soft: #2f5578; /* strip & footer */
+    --color-ink: #1b3a5c;       /* heading text */
+    --color-canvas: #d6d6d6;    /* page background */
+    --color-brand: #0b5ed7;     /* primary button */
+    --color-brand-dark: #0949a8;
+    --color-field: #f3f3f3;     /* input background */
+}
+
+@layer base {
+    body { @apply font-sans text-ink bg-canvas; }
+    h1, h2, h3 { @apply font-display font-bold italic; }
+}
+
+@layer components {
+    .btn-primary { @apply inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand; }
+    .btn-muted { @apply inline-flex items-center justify-center rounded-lg bg-neutral-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-neutral-600; }
+    .btn-danger { @apply inline-flex items-center justify-center rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700; }
+    .btn-ok { @apply inline-flex items-center justify-center rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700; }
+    .input { @apply w-full rounded-lg border border-transparent bg-field px-4 py-3 text-sm text-ink placeholder:text-neutral-400 focus:border-brand focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/30; }
+    .panel { @apply rounded-3xl bg-white p-6 sm:p-8 shadow-sm; }
+}
